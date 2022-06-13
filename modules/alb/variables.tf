@@ -20,5 +20,12 @@ variable "subnets" {
 
 variable "instance_ids" {
   type        = list(string)
+  default     = []
   description = "Instance IDs"
+}
+
+variable "target_type" {
+  type        = string
+  default     = "ip"
+  description = "Target type options ip/instance/lambda"
 }
