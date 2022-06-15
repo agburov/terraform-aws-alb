@@ -21,22 +21,12 @@ module "example_alb" {
 
   vpc_id       = data.aws_vpc.main.id
   subnets      = data.aws_subnets.main.ids
-  instance_ids = [module.example_instance.id, module.example_instance_other.id]
+  instance_ids = module.example_instance.id
 
   depends_on = [module.sg]
 }
 
 module "example_instance" {
-  source = "./modules/instance"
-
-  name            = local.instance_name
-  security_groups = [module.sg.aws_security_group_instance_sg]
-
-  key_name   = "arthur-key-nvirginia"
-  depends_on = [module.sg]
-}
-
-module "example_instance_other" {
   source = "./modules/instance"
 
   name            = local.instance_name

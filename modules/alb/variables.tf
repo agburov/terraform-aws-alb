@@ -26,6 +26,6 @@ variable "instance_ids" {
 
 variable "target_type" {
   type        = string
-  default     = "ip"
+  default     = "instance" #IP is needed to continue working with ECS
   description = "Target type options ip/instance/lambda"
 }

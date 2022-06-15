@@ -1,6 +1,6 @@
 resource "aws_instance" "this" {
-  ami = data.aws_ami.awslinux2.id
-
+  ami           = data.aws_ami.awslinux2.id
+  count         = var.instance_count
   instance_type = var.instance_type
   key_name      = var.key_name
 
